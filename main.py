@@ -9,12 +9,9 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.core.text import LabelBase
-<<<<<<< HEAD
-=======
-from plyer import filechooser
+from plyer import filechooser, camera
 import uuid
 import os
->>>>>>> a4447ad (Updated)
 
 # Load KV Files
 Builder.load_file('kv/main.kv')
@@ -236,9 +233,34 @@ class MyApp(App):
 
         Window.bind(size=self.adjust_fonts)
         return sm
-    
+
     def adjust_fonts(self, *args):
         pass  # Implement dynamic font scaling if needed
+
+    def open_camera(self, instance):
+        # Open Camera
+        try:
+            filename = f'/storage/emulated/0/DCIM/Camera/{uuid.uuid4().hex}.jpg'
+            camera.take_picture(
+                filename=filename,
+                on_complete=self.picture_taken
+            )
+        except Exception as e:
+            print(f"Error Accessing Camera: {e}")
+
+    def picture_taken(self, path):
+        if path:
+            new_path = os.path.join('/storage/emulated/0/DCIM/Camera', os.path.basename(path))
+            print(f'Picture saved at {new_path}')
+            self.text_input.text = new_path  # Display the path in TextInput
+
+    def open_gallery(self, instance):
+        # Use filechooser to open the gallery and select an image
+        filechooser.open_file(on_selection=self.on_file_selected, filters=["*.jpg", "*.png"])
+
+    def on_file_selected(self, selection):
+        if selection:
+            self.text_input.text = selection[0]  # Display the selected image path in TextInput
 
 if __name__ == '__main__':
     MyApp().run()
