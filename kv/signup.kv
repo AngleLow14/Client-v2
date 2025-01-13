@@ -1,0 +1,364 @@
+#:kivy 2.1.0
+<SignUpPage>:
+    orientation: 'horizontal'
+    padding: dp(10)
+    spacing: dp(10)
+    size_hint: None, None
+    size: dp(300), dp(650)
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(5)
+        spacing: dp(5)
+        size_hint_y: None
+        height: dp(600)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        canvas.before:
+            Color:
+                rgba: 1, 0.984, 0.675, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        # Header        
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: dp(10)
+            spacing: dp(5)
+            size_hint_y: None
+            height: dp(100)
+            canvas.before:
+                Color:
+                    rgba: 1, 0.984, 0.675, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Image:
+                source: 'assets/logo/Nagcarlan.png'
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                height: dp(80)
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(2)
+                canvas.before:
+                    Color:
+                        rgba: 1, 0.984, 0.675, 1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+                Label:
+                    text: "[color=000000ff][b]SIKLAB - MDRRMO[/b][/color]"
+                    font_name: 'Medium'
+                    markup: True
+                    font_size: dp(12)
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+
+                Label:
+                    text: "[color=000000ff]Municipality of Nagcarlan, Laguna[/color]"
+                    font_name: 'Medium'
+                    markup: True
+                    font_size: dp(10)
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+
+            Image:
+                source: 'assets/logo/mdrrmo.png'
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                height: dp(80)
+        
+        # Body
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(10)
+            spacing: dp(10)
+            size_hint_y: None
+            height: dp(400)
+            canvas.before:
+                Color:
+                    rgba: 1, 0.984, 0.675, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(15)]
+
+            Label:
+                text: '[color=000000ff][b]SIGN UP[/b][/color]'
+                font_name: 'Montserrat'
+                font_size: dp(20)
+                markup: True
+                halign: 'center'
+                valign: 'bottom'
+                size_hint_y: None
+                height: dp(30)
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: dp(10)
+                    spacing: dp(5)
+                    height: dp(625)
+                    size_hint: 1, None
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0.957, 0.129, 1
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [dp(10)]
+
+                    Label:
+                        text: "[color=000000ff]First Name[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: first_name
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Middle Name[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: middle_name
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Last Name[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: last_name
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Age[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: age
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Phone Number[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: phone_number
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Street Number[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: street_no
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Barangay[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: brgy
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Password[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: password
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Label:
+                        text: "[color=000000ff]Confirm Password[/color]"
+                        font_name: 'Montserrat'
+                        markup: True
+                        size_hint: None, None
+                        height: dp(20)
+                        pos_hint: {'center_x': 0.5}
+
+                    TextInput:
+                        id: confirm_password
+                        multiline: False
+                        size_hint: None, None
+                        size: dp(200), dp(30)
+                        pos_hint: {"center_x": 0.5}
+
+                    Button:
+                        text: "Sign Up"
+                        background_normal: ''  # Remove default background
+                        background_down: ''
+                        background_color: 0, 0, 0, 0  # Make the default button transparent
+                        font_name: 'Montserrat'
+                        font_size: dp(13)
+                        size_hint: None, None
+                        pos_hint: {'center_x': 0.5}
+                        height: dp(30)
+                        width: dp(100)
+                        on_press: root.submit()
+
+                        canvas.before:
+                            Color:
+                                rgba: (0.1, 0.59, 0, 1)  # Green #199700
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [15]  # Rounded corners (adjust for more/less curve)
+
+                    Button:
+                        text: "[color=000000ff]Cancel[/color]"
+                        markup: True
+                        background_normal: ''  # Remove default background
+                        background_down: ''
+                        background_color: 0, 0, 0, 0  # Make the default button transparent
+                        font_name: 'Montserrat'
+                        font_size: dp(13)
+                        size_hint: None, None
+                        pos_hint: {'center_x': 0.5}
+                        height: dp(30)
+                        width: dp(100)
+                        on_press: root.cancel()
+
+                        canvas.before:
+                            Color:
+                                rgba: (0.1, 0.59, 0, 1)  # Green #199700
+                            Line:
+                                width: 1  # Border thickness
+<<<<<<< HEAD
+                                rounded_rectangle: [self.x, self.y, self.width, self.height, 15]
+=======
+                                rounded_rectangle: [self.x, self.y, self.width, self.height, 15]
+        #Footer
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(10)
+            spacing: dp(15)
+            size_hint_y: None
+            size: dp(150), dp(80)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(10)
+                size_hint: None, None
+                size: dp(100), dp(15)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                Image:
+                    source: 'assets/logo/contact.png'
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint: None, None
+                    size: dp(15), dp(15)
+                    halign: 'center'
+                    valign: 'middle'
+
+                Label:
+                    id: hotline_contact
+                    text: '[color=000000ff][b]09123456789[/b][/color]'
+                    font_name: 'Regular'
+                    font_size: dp(10)
+                    markup: True
+                    size_hint: None, None
+                    size: dp(150), dp(15)
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(10)
+                size_hint: None, None
+                size: dp(160), dp(15)
+                pos_hint: {'center_x': 0.5}
+
+                Image:
+                    source: 'assets/logo/email.png'
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint: None, None
+                    size: dp(15), dp(15)
+                    halign: 'center'
+                    valign: 'middle'
+
+                Label:
+                    id: hotline_email
+                    text: '[color=000000ff][b]siklabmdrrmo@gmail.com[/b][/color]'
+                    font_name: 'Regular'
+                    font_size: dp(10)
+                    markup: True
+                    size_hint: None, None
+                    size: dp(150), dp(15)
+                    halign: 'left'
+                    valign: 'middle'
+                    text_size: self.size
+>>>>>>> a4447ad (Updated)

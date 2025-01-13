@@ -1,0 +1,337 @@
+#:kivy 2.1.0
+<HomePage>:
+    orientation: 'horizontal'
+    padding: dp(10)
+    spacing: dp(10)
+    size_hint: None, None
+    size: dp(300), dp(650)
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(5)
+        spacing: dp(5)
+        size_hint_y: None
+        height: dp(600)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        canvas.before:
+            Color:
+                rgba: 1, 0.984, 0.675, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        # Header        
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: dp(10)
+            spacing: dp(5)
+            size_hint_y: None
+            height: dp(100)
+            canvas.before:
+                Color:
+                    rgba: 1, 0.984, 0.675, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Image:
+                source: 'assets/logo/Nagcarlan.png'
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                height: dp(80)
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(2)
+                canvas.before:
+                    Color:
+                        rgba: 1, 0.984, 0.675, 1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+                Label:
+                    text: "[color=000000ff][b]SIKLAB - MDRRMO[/b][/color]"
+                    font_name: 'Medium'
+                    markup: True
+                    font_size: dp(12)
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+
+                Label:
+                    text: "[color=000000ff]Municipality of Nagcarlan, Laguna[/color]"
+                    font_name: 'Medium'
+                    markup: True
+                    font_size: dp(10)
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+
+            Image:
+                source: 'assets/logo/mdrrmo.png'
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                height: dp(80)
+        
+        # Body
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            BoxLayout:
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(10)
+                size_hint: 1, None
+                height: dp(530)
+                canvas.before:
+                    Color:
+                        rgba: 1, 0.984, 0.675, 1
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [dp(15)]
+                # User
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: dp(10)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(80)
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0.984, 0.675, 1
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+                    FloatLayout:
+                        Button:
+                            background_normal: ''  
+                            background_down: ''
+                            background_color: 0, 0, 0, 0  
+                            size_hint: None, None
+                            pos_hint: {'center_x': 0.05, 'center_y': 0.5}
+                            height: dp(40)
+                            width: dp(40)
+                            on_press: root.logout()
+                        Image:
+                            source: 'assets/logo/out.png'  # Your icon path
+                            size_hint: None, None
+                            size: dp(40), dp(40)
+                            pos_hint: {'center_x': 0.05, 'center_y': 0.5}
+                    
+                    Label:
+                        text: '[color=000000ff][b]Kamusta, Gene![/b][/color]'
+                        font_name: 'Medium'
+                        markup: True
+                        font_size: dp(20)
+                        size_hint_y: None
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        height: dp(5)
+
+                # Location Bar
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(5)
+                    size_hint: None, None
+                    size: dp(270), dp(200)
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0.957, 0.129, 1
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [dp(15)]
+
+                    # Weather Advisory Label
+                    Label:
+                        id: emergency_type
+                        text: '[color=000000ff][b]Weather Advisory[/b][/color]'
+                        font_name: 'Medium'
+                        font_size: dp(18)
+                        halign: 'center'
+                        valign: 'middle'
+                        markup: True
+                        size_hint: (1, None)
+                        height: dp(50)
+
+                    # Description Label (with wrapping)
+                    Label:
+                        id: description
+                        text: '[color=000000ff][b]Signal #3 ang nararanasang kalawakan ng Southern Luzon. Babaha at tataas ang alon ng pagmamahal. Tatalon, Tatakbo, Sisigaw agn pangalan mo.[/b][/color]'
+                        font_name: 'Regular'
+                        font_size: dp(15)
+                        halign: 'center'
+                        valign: 'middle'
+                        markup: True
+                        size_hint: (1, None)  # Fill width, adjust height
+                        text_size: (self.width, None)  # Wrap text within label width
+                        height: self.texture_size[1]  # Automatically adjust height to fit text
+
+                    # Date Label
+                    Label:
+                        id: date
+                        text: '[color=000000ff][b]01:24PM, December 20, 2024[/b][/color]'
+                        font_name: 'Medium'
+                        font_size: dp(10)
+                        halign: 'center'
+                        valign: 'middle'
+                        markup: True
+                        size_hint: (1, None)  # Same behavior as other labels
+                        height: dp(50)  # Adjust height to fit date text
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: dp(10)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(75)
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0.984, 0.675, 1
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    
+                    Label:
+                        text: '[color=000000ff][b]What to do?[/b][/color]'
+                        font_name: 'Medium'
+                        markup: True
+                        font_size: dp(20)
+                        size_hint: None, None
+                        pos_hint: {'center_x': 0.2}
+                # Disaster
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: dp(5)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(50)
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0.984, 0.675, 1
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                        
+                    FloatLayout:
+                        Button:
+                            background_normal: ''  
+                            background_down: ''
+                            background_color: 1, 0.957, 0.129, 1  
+                            size_hint: None, None
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            height: dp(50)
+                            width: dp(50)
+                            on_press: root.landslide()
+                        Image:
+                            source: 'assets/logo/guho.png'  # Your icon path
+                            size_hint: None, None
+                            size: dp(40), dp(40)
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    FloatLayout:
+                        Button:
+                            background_normal: ''  
+                            background_down: ''
+                            background_color: 1, 0.957, 0.129, 1 
+                            size_hint: None, None
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            height: dp(50)
+                            width: dp(50)
+                            on_press: root.typhoon()
+                        Image:
+                            source: 'assets/logo/bagyo.png'  # Your icon path
+                            size_hint: None, None
+                            size: dp(40), dp(40)
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    FloatLayout:
+                        Button:
+                            background_normal: ''  
+                            background_down: ''
+                            background_color: 1, 0.957, 0.129, 1 
+                            size_hint: None, None
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            height: dp(50)
+                            width: dp(50)
+                            on_press: root.lindol()
+                        Image:
+                            source: 'assets/logo/lindol.png'  # Your icon path
+                            size_hint: None, None
+                            size: dp(40), dp(40)
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}                # Disaster
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: dp(5)
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(75)
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0.984, 0.675, 1
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+                    FloatLayout:
+                        Button:
+                            background_normal: ''  
+                            background_down: ''
+                            background_color: 1, 0.957, 0.129, 1
+                            size_hint: None, None
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            height: dp(50)
+                            width: dp(50)
+                            on_press: root.eruption()
+                        Image:
+                            source: 'assets/logo/bulkan.png'  # Your icon path
+                            size_hint: None, None
+                            size: dp(40), dp(40)
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                    FloatLayout:
+                        Button:
+                            background_normal: ''  
+                            background_down: ''
+                            background_color: 1, 0.957, 0.129, 1
+                            size_hint: None, None
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            height: dp(50)
+                            width: dp(50)
+                            on_press: root.fire()
+                        Image:
+                            source: 'assets/logo/apoy.png'  # Your icon path
+                            size_hint: None, None
+                            size: dp(40), dp(40)
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            # Footer Button
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(10)
+            spacing: dp(10)
+            size_hint_y: None
+            height: dp(50)
+            canvas.before:
+                Color:
+                    rgba: 1, 0.957, 0.129, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                
+            Button:
+                text: '[color=000000ff][b]EMERGENCY[/b][/color]'
+                markup: True
+                font_size: dp(20)
+                font_name: 'Medium'
+                background_normal: ''
+                background_down: ''
+                background_color: 1, 0.957, 0.129, 1
+                halign: 'center'
+                valign: 'bottom'
+                size: dp(350), dp(55)
+                on_press: root.emergency()
